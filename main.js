@@ -72,7 +72,7 @@ function animate() {
       drawText("Hello World", body.vertices[0].x, body.vertices[0].y, body.parts[0].angle);
     }
 
-    drawShape(body.vertices);
+    if (DEV) drawShape(body.vertices);
   }
 
   updateGravity();
@@ -144,7 +144,7 @@ function updateGravity() {
     engine.gravity.x = gravity.x;
     engine.gravity.y = gravity.y;
 
-    drawDebugText(alpha, beta, gamma);
+    if (DEV) drawDebugText(alpha, beta, gamma);
   }
 }
 
