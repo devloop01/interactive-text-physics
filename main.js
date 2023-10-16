@@ -72,10 +72,10 @@ function animate() {
       drawText("Hello World", body.vertices[0].x, body.vertices[0].y, body.parts[0].angle);
     }
 
-    if (DEV) drawShape(body.vertices);
+    drawShape(body.vertices);
   }
 
-  if (DEV) drawDebugText();
+  drawDebugText();
 }
 
 function drawShape(vertices) {
