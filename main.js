@@ -1,6 +1,8 @@
 import "unfonts.css";
 import "./style.css";
 
+const DEV = import.meta.env.DEV;
+
 import { Engine, Composite, Bodies, Body, Mouse, MouseConstraint } from "matter-js";
 
 import { getFont, getDeviceOrientation, clamp, getRandomInRange } from "./utils";
@@ -70,10 +72,10 @@ function animate() {
       drawText("Hello World", body.vertices[0].x, body.vertices[0].y, body.parts[0].angle);
     }
 
-    drawShape(body.vertices);
+    if (DEV) drawShape(body.vertices);
   }
 
-  drawDebugText();
+  if (DEV) drawDebugText();
 }
 
 function drawShape(vertices) {
