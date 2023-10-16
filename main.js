@@ -75,7 +75,7 @@ function animate() {
     drawShape(body.vertices);
   }
 
-  drawDebugText();
+  updateGravity();
 }
 
 function drawShape(vertices) {
@@ -127,7 +127,7 @@ function drawText(text, x, y, angle) {
   context.closePath();
 }
 
-function drawDebugText() {
+function updateGravity() {
   const orientation = deviceOrientation.orientation;
 
   if (orientation !== null) {
@@ -144,12 +144,16 @@ function drawDebugText() {
     engine.gravity.x = gravity.x;
     engine.gravity.y = gravity.y;
 
-    context.font = "16px monospace";
-    context.fillStyle = "#000";
-    context.fillText(`alpha: ${alpha}`, 10, canvas.height - 10 - 16 * 1);
-    context.fillText(`beta: ${beta}`, 10, canvas.height - 10 - 16 * 2);
-    context.fillText(`gamma: ${gamma}`, 10, canvas.height - 10 - 16 * 3);
+    drawDebugText(alpha, beta, gamma);
   }
+}
+
+function drawDebugText(alpha, beta, gamma) {
+  context.font = "16px monospace";
+  context.fillStyle = "#000";
+  context.fillText(`alpha: ${alpha}`, 10, canvas.height - 10 - 16 * 1);
+  context.fillText(`beta: ${beta}`, 10, canvas.height - 10 - 16 * 2);
+  context.fillText(`gamma: ${gamma}`, 10, canvas.height - 10 - 16 * 3);
 }
 
 function createBounds() {
